@@ -7,7 +7,7 @@ import {CounterService} from './services/counter.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
+  title = 'Angular4 Rocks!';
   evenList : number [] = [];
   oddList : number[] = [];
 
