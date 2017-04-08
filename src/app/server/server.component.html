@@ -1,0 +1,8 @@
+<div class="container">
+   <button class="btn btn-primary" (click)="onDisplayDetails()">Display Details</button>
+   <p *ngIf="displayParagraph()"> Hello Directives</p>
+   <ul class="list-group">
+     <li *ngFor="let item of lists; let i= index " [ngStyle]="{backgroundColor: (item > 4 ? 'blue' : 'white')}"
+      [ngClass]="{listClass: i > 4}">Counter {{item}}</li>
+   </ul>
+</div>

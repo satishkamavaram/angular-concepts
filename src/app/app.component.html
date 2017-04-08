@@ -1,3 +1,38 @@
 <h1>
   {{title}}
 </h1>
+<hr>
+<!--<app-servers></app-servers>
+<app-server></app-server>-->
+<app-controller (intervalEvents)="onEventListen($event)"></app-controller>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <app-even *ngFor="let counter of evenList" [evenValueAlias]="counter">
+      </app-even>
+    </div>
+    <div class="col-md-6">
+      <app-odd *ngFor="let counter of oddList" [oddValueAlias]="counter">
+      </app-odd>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<h3>Active Users <span class="badge" style="background-color:green">{{activeCount}}</span></h3>
+<div class="panel panel-default">
+  <div class="panel-body" >
+    <app-active-users *ngFor="let selectedUser of users; let i =index"
+    [user]='selectedUser'
+    [id]='i'></app-active-users>
+  </div>
+</div>
+<h3>InActive Users <span class="badge" style="background-color:red">{{inactiveCount}}</span></h3>
+<div class="panel panel-default">
+  <div class="panel-body" >
+    <app-in-active-users *ngFor="let selectedInActiveUser of inactiveUsers; let i =index"
+    [user]='selectedInActiveUser'
+    [id]='i'></app-in-active-users>
+  </div>
+</div>
+</div>

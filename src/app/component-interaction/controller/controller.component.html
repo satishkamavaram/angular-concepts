@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <button  type="button" class="btn btn-success btn-block" [disabled]="startButtonStatus"
+      (click)="onStartClick()">
+        Start
+      </button>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-danger btn-block"
+        [disabled] ="stopButtonStatus"
+        (click)="onStopClick()">Stop</button>
+      </div>
+  </div>
+  <hr>
+<!--  <div *ngFor="let counter of lists">
+    <app-even *ngIf="isEven(counter); else elseBlock" [evenValueAlias]="counter"></app-even>
+    <ng-template #elseBlock><app-odd [oddValueAlias]="counter"></app-odd></ng-template>
+  </div> -->
+</div>

@@ -1,0 +1,16 @@
+<!--<input type="text" class="form-control" [(ngModel)]="username" (input)="onChangeUserName($event)" ></input>
+-->
+<input type="text" class="form-control" [(ngModel)]="username"  (input)="onChangeUserName($event)">
+<p> {{username}}</p>
+<button
+class="btn btn-primary"
+[disabled]="usernameEmpty"
+(click)="emptyUsername()">Username</button>
+
+
+<input type="text" class="form-control" [(ngModel)]="username"  >
+<p> {{username}}</p>
+<button
+class="btn btn-primary"
+[disabled]="username===''"
+(click)="username=''">Username</button>
