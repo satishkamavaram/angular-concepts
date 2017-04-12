@@ -1,15 +1,16 @@
-  import { Component,Output,OnInit } from '@angular/core';
+  import { Component,Output,OnInit,OnDestroy } from '@angular/core';
 import {UserServices} from './services/User.services';
 import {CounterService} from './services/counter.service';
 import {Observable}  from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Observer} from 'rxjs/Observer';
+import {Subscription} from 'rxjs/Subscription';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit ,OnDestroy{
   title = 'Angular4 Rocks!';
   evenList : number [] = [];
   oddList : number[] = [];
@@ -19,6 +20,7 @@ inactiveUsers : {name:String,status:String} [] = [];
 activeCount : number = 0;
 inactiveCount : number = 0;
 
+testObservables : Subscription ;
 constructor(private userServices : UserServices ,private counterService : CounterService) {
 
 }
@@ -36,7 +38,7 @@ ngOnInit() {
     );
 
     //Observables
-    const testObservables  = Observable.create((observer : Observer<string>)=>
+    const testmyObservables  = Observable.create((observer : Observer<string>)=>
   {
       setTimeout(()=>{
         observer.next('first observer');
@@ -55,7 +57,7 @@ ngOnInit() {
      },10000);
   });
 
-  testObservables.subscribe(
+  this.testObservables = testmyObservables.subscribe(
     (data:String) =>{
       console.log(data);
     },
@@ -79,4 +81,7 @@ onEventListen (firedNumber: number) {
    }
 }
 
+ngOnDestroy() {
+  this.testObservables.unsubscribe();
+}
 }
