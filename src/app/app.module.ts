@@ -15,6 +15,7 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InActiveUsersComponent } from './in-active-users/in-active-users.component';
 import {UserServices} from './services/User.services';
 import {CounterService} from './services/counter.service';
+import { FormDirectiveComponent } from './templateform/form-directive/form-directive.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import {CounterService} from './services/counter.service';
     OddComponent,
     EvenComponent,
     ActiveUsersComponent,
-    InActiveUsersComponent
+    InActiveUsersComponent,
+    FormDirectiveComponent
   ],
   imports: [
     BrowserModule,

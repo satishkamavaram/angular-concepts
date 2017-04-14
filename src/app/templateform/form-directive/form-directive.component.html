@@ -1,0 +1,72 @@
+<div class="container container-table">
+    <div class="row vertical-center-row">
+      <div class="col-md-4 col-md-offset-4">
+       <form (ngSubmit)="OnSubmit()" #formSubmit="ngForm">
+         <div class="form-group">
+           <label for="email">Email</label>
+           <input type="email"
+           class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            placeholder="Email"
+            required
+            email
+            #email="ngModel">
+             <p *ngIf="email.touched && email.invalid"
+             style="color:red">Please enter Valid Email!</p>
+         </div>
+         <div class="form-group">
+           <label for="passwordFor">Password</label>
+           <input type="password" class="form-control"
+           id="passwordFor"
+           placeholder="Password"
+           ngModel
+           name="pwd"
+           required
+           #pwd="ngModel">
+           <p *ngIf="pwd.touched && pwd.invalid"
+           style="color:red">Please enter Password!</p>
+         </div>
+         <div class="form-group">
+           <label for="subscription">Select Subscription</label>
+             <select class="form-control"
+              id="subscription"
+              name="selectedSubscription"
+              ngModel
+              required>
+                <option value=""></option>
+                <option *ngFor="let item of subscribtions" value="{{item}}">{{item}}</option>
+              </select>
+         </div>
+         <div class="checkbox">
+           <label>
+             <input type="checkbox"
+             name="optIn"
+             ngModel
+             required> Opt In
+           </label>
+         </div>
+         <button type="submit"
+         class="btn btn-primary"
+         [disabled]="formSubmit.invalid">Submit</button>
+       </form>
+       </div>
+    </div>
+  <hr>
+    <div class="row vertical-center-row">
+      <div class="col-md-4 col-md-offset-4">
+        <p><b>Email : </b>{{submittedData.email}}</p>
+        <p><b>Password : </b>{{submittedData.pwd}} <span>
+          <button type="submit"
+          *ngIf="!showPwd && submitted"
+          class="btn btn-primary" (click)="show()">Show</button>
+          <button type="submit"
+            *ngIf="showPwd && submitted"
+          class="btn btn-primary" (click)="hide()">Hide</button>
+        </span></p>
+        <p><b>Subscription : </b>{{submittedData.sub}}</p>
+        <p><b>Opt-In : </b>{{submittedData.opt}}</p>
+      </div>
+    </div>
+</div>
