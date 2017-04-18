@@ -22,6 +22,19 @@ export class ReactiveFormDirectiveComponent implements OnInit {
         'status' : new FormControl('active')
       }
     );
+    this.userForm.statusChanges.subscribe(
+      (status=>{
+        console.log('status changed ' );
+        console.log(status );
+      })
+    );
+
+    this.userForm.valueChanges.subscribe(
+      (status=>{
+        console.log('value changed ' );
+        console.log(status );
+      })
+    );
   }
 
   OnSubmit(){
