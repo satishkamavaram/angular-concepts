@@ -1,0 +1,47 @@
+<div class="container container-table">
+    <div class="row vertical-center-row">
+      <div class="col-md-4 col-md-offset-4">
+       <form [formGroup]="userForm" (ngSubmit)="OnSubmit()">
+         <div class="form-group">
+           <label for="name">Project Name</label>
+           <input type="text" class="form-control"
+           id="name"
+           placeholder="Project Name"
+           formControlName="pname">
+           <p *ngIf="!userForm.get('pname').valid && userForm.get('pname').touched"
+           style="color:red">
+          <span *ngIf="userForm.get('pname').errors['forbidden']">
+          Please enter Valid Project Name!</span>
+          <span *ngIf="userForm.get('pname').errors['required']">
+           Project Name field is required</span>
+         </p>
+         </div>
+         <div class="form-group">
+           <label for="email">Email</label>
+           <input type="text"
+           class="form-control"
+            id="email"
+            placeholder="Email"
+            formControlName="email">
+         </div>
+
+         <div class="form-group">
+           <label for="status">Select Status</label>
+             <select class="form-control"
+              id="status"
+              name="selectedSubscription"
+              formControlName="status">
+                <option value=""></option>
+                <option *ngFor="let item of status" value="{{item}}">{{item}}</option>
+              </select>
+         </div>
+         <button type="submit"
+         class="btn btn-primary"
+         [disabled]="userForm.touched && userForm.invalid">Submit</button>
+       </form>
+       </div>
+    </div>
+  <hr>
+
+
+</div>

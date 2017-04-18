@@ -11,7 +11,7 @@ import {Subscription} from 'rxjs/Subscription';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit ,OnDestroy{
-  title = 'Angular4 Rocks!';
+  title = 'Angular4 Concepts!';
   evenList : number [] = [];
   oddList : number[] = [];
 
