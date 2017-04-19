@@ -16,23 +16,23 @@ export class ReactiveFormDirectiveComponent implements OnInit {
   ngOnInit() {
     this.userForm =  new FormGroup(
       {
-        'pname' : new FormControl(null,[Validators.required,this.validateProjectname.bind(this)]),
-  //    'pname' : new FormControl(null,[Validators.required],this.asycValidateProjectname),
+    //    'pname' : new FormControl(null,[Validators.required,this.validateProjectname.bind(this)]),
+      'pname' : new FormControl(null,[Validators.required],this.asycValidateProjectname.bind(this)),
         'email' : new FormControl(null,[Validators.required,Validators.email]),
         'status' : new FormControl('active')
       }
     );
     this.userForm.statusChanges.subscribe(
       (status=>{
-        console.log('status changed ' );
-        console.log(status );
+      //  console.log('status changed ' );
+      //  console.log(status );
       })
     );
 
     this.userForm.valueChanges.subscribe(
       (status=>{
-        console.log('value changed ' );
-        console.log(status );
+    //    console.log('value changed ' );
+    //    console.log(status );
       })
     );
   }
@@ -56,8 +56,8 @@ export class ReactiveFormDirectiveComponent implements OnInit {
       (resolve,reject)=>{
         setTimeout(()=>{
           console.log('timeout');
-      //    if(this.forbiddenProjectNames.indexOf(control.value)!== -1)
-          if("test"=== control.value){
+         if(this.forbiddenProjectNames.indexOf(control.value)!== -1){
+      //    if("test"=== control.value){
             return  resolve({'forbidden': true});
           } else{
             return  resolve(null);

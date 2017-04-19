@@ -10,9 +10,10 @@
            formControlName="pname">
            <p *ngIf="!userForm.get('pname').valid && userForm.get('pname').touched"
            style="color:red">
-          <span *ngIf="userForm.get('pname').errors['forbidden']">
+          <span *ngIf="(userForm.get('pname').errors?.forbidden)
+          ">
           Please enter Valid Project Name!</span>
-          <span *ngIf="userForm.get('pname').errors['required']">
+          <span *ngIf="userForm.get('pname').errors?.required">
            Project Name field is required</span>
          </p>
          </div>
